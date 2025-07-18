@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠削除</title>
+   
 </head>
 <body>
+    <div class="container">
+        <h1>勤怠削除</h1>
+        <form id="deleteForm">
+            <label for="date">日付:</label>
+            <input type="date" id="date" name="date" readonly>
 
+            <label for="workType">勤務形態:</label>
+            <input type="text" id="workType" name="workType" readonly>
+
+            <label for="clockIn">出勤時間:</label>
+            <input type="time" id="clockIn" name="clockIn" readonly>
+
+            <label for="clockOut">退勤時間:</label>
+            <input type="time" id="clockOut" name="clockOut" readonly>
+
+            <label for="breakTime">休憩時間 (分):</label>
+            <input type="number" id="breakTime" name="breakTime" min="0" step="1" readonly>
+
+            <div class="button-container">
+                <button type="button" onclick="cancelDelete()">戻る</button>
+                <button type="button" onclick="confirmDelete()">削除</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // URLパラメータから編集対象のデータを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const recordIndex = urlParams.get('index');
+
+        // ダミーデータ（実際の実装では、サーバーからデータを取得する）
+        const dummyData = [
+            { date: '2023-05-01', workType: '01:出勤', clockIn: '09:00', clockOut: '18:00', breakTime: 60 },
+            { date: '2023-05-02', workType: '02:振出', clockIn: '08:55', clockOut: '18:30', breakTime: 60 },
+            { date: '2023-05-03', workType: '03:振休', clockIn: '09:05', clockOut: '17:45', breakTime: 60 },
+        ];
+
+        // フォームに既存のデータを設定
+        if (recordIndex !== null) {
+            const record = dummyData[recordIndex];
+            document.getElementById('date').value = record.date;
+            document.getElementById('workType').value = record.workType;
+            document.getElementById('clockIn').value = record.clockIn;
+            document.getElementById('clockOut').value = record.clockOut;
+            document.getElementById('breakTime').value = record.breakTime;
+        }
+
+        // 削除確認ダイアログを表示
+        function confirmDelete() {
+            if (confirm('本当にこの勤怠記録を削除しますか？')) {
+                deleteRecord();
+            }
+        }
+
+        // 削除処理
+        function deleteRecord() {
+            // ここで実際の削除処理を行う（サーバーにリクエストを送るなど）
+            alert('勤怠記録が削除されました');
+            // 削除後、検索結果ページに戻る
+            window.location.href = 'attendance_search_results.html';
+        }
+
+        // 戻るボタンの処理
+        function cancelDelete() {
+            // 検索結果ページに戻る
+            window.location.href = 'attendance_search_results.html';
+        }
+    </script>
 </body>
 </html>

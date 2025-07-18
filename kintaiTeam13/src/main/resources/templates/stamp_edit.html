@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠編集</title>
+   
 </head>
 <body>
+    <div class="container">
+        <h1>勤怠編集</h1>
+        <form id="editForm">
+            <label for="date">日付:</label>
+            <input type="date" id="date" name="date" required>
 
+            <label for="workType">勤務形態<br>(01:出勤 02:振出 03:振休 04:年休 05:休日 06:欠勤)</label>
+            <select id="workType" name="workType" required>
+                <option value="">選択してください</option>
+                <option value="出勤">01</option>
+                <option value="振出">02</option>
+                <option value="振休">03</option>
+                <option value="年休">04</option>
+                <option value="休日">05</option>
+                <option value="欠勤">06</option>
+            </select>
+
+            <label for="clockIn">出勤時間:</label>
+            <input type="time" id="clockIn" name="clockIn" required>
+
+            <label for="clockOut">退勤時間:</label>
+            <input type="time" id="clockOut" name="clockOut" required>
+
+            <label for="breakTime">休憩時間:</label>
+            <input type="time" id="breakTime" name="breakTime" required>
+
+            <div class="button-container">
+                <button type="button" onclick="cancelEdit()">戻る</button>
+                <button type="submit">保存</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // URLパラメータから編集対象のデータを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const recordIndex = urlParams.get('index');
+
+        // ダミーデータ（実際の実装では、サーバーからデータを取得するか、
+        // ローカルストレージなどを使用してデータを保持する必要があります）
+        const dummyData = [
+            { date: '2023-05-01', workType: 'regular', clockIn: '09:00', clockOut: '18:00', breakTime: '01:00' },
+            { date: '2023-05-02', workType: 'overtime', clockIn: '08:55', clockOut: '18:30', breakTime: '01:00' },
+            { date: '2023-05-03', workType: 'remote', clockIn: '09:05', clockOut: '17:45', breakTime: '01:00' },
+        ];
+
+        // フォームに既存のデータを設定
+        if (recordIndex !== null) {
+            const record = dummyData[recordIndex];
+            document.getElementById('date').value = record.date;
+            document.getElementById('workType').value = record.workType;
+            document.getElementById('clockIn').value = record.clockIn;
+            document.getElementById('clockOut').value = record.clockOut;
+            document.getElementById('breakTime').value = record.breakTime;
+        }
+
+        // フォーム送信時の処理
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // ここでフォームデータを処理し、サーバーに送信するなどの操作を行います
+            alert('保存されました');
+            // 保存後、検索結果ページに戻る
+            window.location.href = 'attendance_search_results.html';
+        });
+
+        // キャンセルボタンの処理
+        function cancelEdit() {
+            // 検索結果ページに戻る
+            window.location.href = 'attendance_search_results.html';
+        }
+    </script>
 </body>
 </html>
