@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠登録</title>
+</head>
+<body>
+    <a href="login.html" class="logout-link">ログアウト</a>
+    <div class="container">
+        <h1>勤怠登録</h1>
+        <form action="confirm.html" method="get">
+            <div class="input-group">
+                <label for="workType">勤務形態<br>(01:出勤 02:振出 03:振休 04:年休 05:休日 06:欠勤)</label>
+                <select id="workType" name="workType">
+                    <option value="">選択してください</option>
+                    <option value="出勤">01</option>
+                    <option value="振出">02</option>
+                    <option value="振休">03</option>
+                    <option value="年休">04</option>
+                    <option value="休日">05</option>
+                    <option value="欠勤">06</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="clockIn">出勤時間</label>
+                <input type="datetime-local" id="clockIn" name="clockIn">
+            </div>
+            <div class="input-group">
+                <label for="clockOut">退勤時間</label>
+                <input type="datetime-local" id="clockOut" name="clockOut">
+            </div>
+            <div class="input-group">
+                <label for="breakTime">休憩時間(分)</label>
+                <input type="number" id="breakTime" name="breakTime" min="0" value="60">
+            </div>
+            <button type="submit" class="button">確認</button>
+        </form>
+    </div>
+</body>
+</html>
