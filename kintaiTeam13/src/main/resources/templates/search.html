@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8">
+    <title>勤怠検索</title>
+</head>
+<body>
+    <h1>勤怠検索フォーム</h1>
+
+    <form th:action="@{/search_result}" method="post">
+        <!-- ID（初期値あり、admin 以外は変更不可） -->
+		<label for="id">ユーザーID：</label>
+		<input type="text" id="id" name="id"
+		       th:value="${id}"
+		       th:readonly="${authority != 'admin'}" /><br><br>
+
+        <!-- 年月（月指定） -->
+        <label for="yearMonth">年月：</label>
+        <input type="month" id="yearMonth" name="yearMonth" required /><br><br>
+
+        <!-- 検索ボタン -->
+        <button type="submit">検索</button>
+    </form>
+
+    <!-- トップページへのリンク -->
+    <br>
+    <!-- <a th:href="@{/top}">トップページへ戻る</a> -->
+</body>
+</html>
