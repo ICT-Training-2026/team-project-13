@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+	<html xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>ログインページ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <h2>ログイン</h2>
+
+    <!-- エラーメッセージ表示 -->
+    <div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>
+
+    <!-- th:object は不要 -->
+    <form th:action="@{/login}" method="post">
+        <label for="id">ユーザーID：</label>
+        <input type="text" id="id" name="id" /><br/><br/>
+
+        <label for="pass">パスワード：</label>
+        <input type="password" id="pass" name="pass" /><br/><br/>
+
+        <button type="submit">ログイン</button>
+    </form>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+
+
+<!--<head>-->
+<!--	<link rel="stylesheet" th:href="@{/css/style.css}" />-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ログインページ</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>ログイン</h2>-->
+	
+<!--	 エラーメッセージ表示 -->
+<!--	   <div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>-->
+    
+<!--    <form th:action="@{/login}" method="post" th:object="${loginForm}">-->
+<!--        <label for="id">ユーザーID：</label>-->
+<!--        <input type="text" th:field="*{id}" id="id" /><br/><br/>-->
+        
+<!--        <label for="pass">パスワード：</label>-->
+<!--        <input type="password" th:field="*{pass}" id="pass" /><br/><br/>-->
+        
+<!--        <button type="submit">ログイン</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
