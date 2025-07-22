@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8">
+    <title>トップページ</title>
+</head>
+<body>
+    <h1>勤怠管理システム</h1>
+
+
+
+    <!-- 新規社員登録（GET） -->
+<!--    <form th:action="@{/user_regist}" method="get">-->
+<!--        <button type="submit">新規社員登録</button>-->
+<!--    </form>-->
+<!-- 新規社員登録（GET） - roleがadminのときだけ表示 -->
+	<form th:action="@{/user_regist}" method="get" th:if="${authority} == 'admin'">
+	    <button type="submit">新規社員登録</button>
+	</form>
+
+
+    <!-- 勤怠登録（POST、IDを持たせる） -->
+    <form th:action="@{/stamp_regist}" method="post">
+        <input type="hidden" name="id" th:value="${id}" />
+        <button type="submit">勤怠登録</button>
+    </form>
+
+    <!-- 検索（未定→とりあえずGETでsearchに飛ばす） -->
+    <form th:action="@{/search}" method="post">
+		<input type="hidden" name="id" th:value="${id}" />
+		<input type="hidden" name="authority" th:value="${authority}" />
+		
+        <button type="submit">検索</button>
+    </form>
+
+    <!-- ログアウト -->
+    <a th:href="@{/login}">ログアウト</a>
+</body>
+</html>

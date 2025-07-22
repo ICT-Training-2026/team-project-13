@@ -1,0 +1,95 @@
+@charset "UTF-8";/* ベース設定 */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background-color: #f3f7f3;
+    color: #2e3d2f;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 中央寄せレイアウト */
+body, html {
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #3d5c3d;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+/* コンテンツ中央配置用コンテナ */
+form, .content-wrapper {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 64, 0, 0.1);
+}
+
+/* ラベルと入力欄 */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #365d37;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="month"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #aac7aa;
+    border-radius: 6px;
+    background-color: #f8fdf8;
+    font-size: 1rem;
+}
+
+input[readonly] {
+    background-color: #eef6ee;
+    color: #444;
+}
+
+/* ボタンスタイル */
+button {
+    background-color: #6fae6f;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5e9d5e;
+}
+
+/* リンク */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #3b7d3b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    form, .content-wrapper {
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
