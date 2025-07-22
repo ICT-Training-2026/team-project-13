@@ -38,6 +38,7 @@ label {
     color: #365d37;
 }
 
+select,
 input[type="text"],
 input[type="password"],
 input[type="date"],
