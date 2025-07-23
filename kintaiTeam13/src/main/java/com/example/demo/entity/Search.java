@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import java.time.YearMonth;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Search {
 	
 	private String userId;
-	private YearMonth yearMonth;
+	private String yearMonth;
 
 }
 
