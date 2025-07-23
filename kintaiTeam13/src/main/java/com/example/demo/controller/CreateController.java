@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.form.CreateForm;
 
 @Controller
-public class Create {
+public class CreateController {
   
 	/*新規登録画面表示リクエスト
 	 
@@ -28,16 +30,26 @@ public class Create {
 	 
 	 /*新規登録リクエスト（登録画面から確認へ）*/
 	  @PostMapping("/create-user")
-	  public String createUser(@ModelAttribute CreateForm form) {
+	  public String createUser(@Validated @ModelAttribute CreateForm form,
+			  BindingResult result) {
 		 
+		  if (result.hasErrors()) {
+			  return "create_user";
+		  }
 		  return "confirm_create_user";
 	  }
 	 
 	 /*新規登録リクエスト（確認画面から完了）*/
 	  @PostMapping("/confirm-create-user")
-	  public String confirmCreateUser(@ModelAttribute CreateForm form, Model model) {
+	  public String confirmCreateUser(@Validated /*@ModelAttribute*/ CreateForm form, 
+			  BindingResult result, Model model) {
+		  
+		  if (result.hasErrors()) {
+			  return "create_user";
+		  }
+		  
 		  model.addAttribute("msg", "新規社員登録が完了しました。");
 		  return "complete_create_user";
 	  }
-	 
 }
+
