@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.entity.User;
 import com.example.demo.form.CreateForm;
 import com.example.demo.service.CreateService;
-import com.example.demo.service.CreateServiceImpl;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class CreateController {
+	
+	private final CreateService service;
   
 	/*新規登録画面表示リクエスト
 	 
@@ -50,10 +55,16 @@ public class CreateController {
 			  return "create_user";
 		  }
 		  
-		  CreateService service = new CreateServiceImpl();
-		  String msg= service.create();
+		  User u = new User();
+		  u.setEmployeeId(form.getEmployeeId());
+		  u.setName(form.getName());
+		  u.setDepartmentId(form.getDepartmentId());
+		  u.setPass(form.getPass());
+		  u.setAuthority(form.getAuthority());
+		  service.create(u);
+				  
 		  
-		  model.addAttribute("msg", msg);
+		  model.addAttribute("msg", "新規社員登録が完了しました。");
 		  return "complete_create_user";
 	  }
 }
