@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新規社員登録</title>
+
+</head>
+<body>
+	<h2>新規社員登録</h2>
+    <form th:action="@{/create-user}" method="POST"
+    		th:object="${createForm}">
+		【社員ID】<br>
+		<input type="text" th:field="*{employeeId}"><br>
+		<br>
+    	【氏名】<br>
+    	<input type="text" th:field="*{name}"><br>
+		<br>
+    	【部署ID】<br>
+    	<input type="text" th:field="*{departmentId}"><br>
+		<br>
+    	【パスワード】<br>
+		<input type="text" th:field="*{pass}"><br>
+		<br>
+    	<input type="submit" value="登録" class="btn">
+    </form>
+</body>
+</html>
