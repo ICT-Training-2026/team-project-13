@@ -1,121 +1,93 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/search_style.css}" />
     <meta charset="UTF-8">
     <title>Search Result</title>
 </head>
 <body>
     <h1>検索結果</h1>
+	
+	
     <div th:if="${searchResult != null}">
-        <table>
-            <thead>
-                <tr>
-                    <th>Regist ID</th>
-                    <th>Employee ID</th>
-                    <th>Status ID</th>
-                    <th>Work Date</th>
-                    <th>Start Time</th>
-                    <th>End Time</th>
-                    <th>Break Time</th>
-                    <th>Comments</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="result : ${searchResult}">
-                    <td th:text="${result.registId}"></td>
-                    <td th:text="${result.employeeId}"></td>
-                    <td th:text="${result.statusId}"></td>
-                    <td th:text="${result.workDate}"></td>
-                    <td th:text="${result.startTime}"></td>
-                    <td th:text="${result.endTime}"></td>
-                    <td th:text="${result.breakTime} + ' minutes'"></td>
-                    <td th:text="${result.comments}"></td>
-                    <td>
-                        <form th:action="@{/edit}" method="POST">
-                            <input type="hidden" name="registId" th:value="${result.registId}">
-                            <input type="submit" value="Edit">
-                        </form>
-                        <form th:action="@{/delete}" method="POST">
-                            <input type="hidden" name="registId" th:value="${result.registId}">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
+        <table class="search_result">
+	         <tr>
+			    <th colspan="2">Actions</th>
+	            <th>登録番号</th>
+	            <th>社員番号</th>
+	            <th>勤務形態</th>
+	            <th>出勤日</th>
+	            <th>始業時間</th>
+	            <th>就業時間</th>
+	            <th>休憩時間</th>
+	            <th>備考</th>
+	        </tr>
+			
+				
+			
+	        <tr th:each="result : ${searchResult}">
+<!--				<td>-->
+<!--					<form th:action="@{/edit}" method="POST">-->
+<!--						<input type="hidden" name="registId"       th:value="${result.registId}">-->
+<!--						<input type="hidden" name="employeeId"   th:value="${result.employeeId}">-->
+<!--						<input type="hidden" name="statusId" th:value="${result.statusId}">-->
+<!--						<input type="hidden" name="workDate"         th:value="${result.workDate}">-->
+<!--						<input type="hidden" name="startTime"      th:value="${result.startTime}">-->
+<!--						<input type="hidden" name="endTime"         th:value="${result.endTime}">-->
+<!--						<input type="hidden" name="breakTime"        th:value="${result.breakTime}">-->
+<!--						<input type="hidden" name="comments"        th:value="${result.comments}">-->
+<!--						<input type="submit" value="編集" class="tbtn">-->
+<!--					</form>-->
+<!--				</td>-->
+<!--				<td>-->
+<!--					<form th:action="@{/delete}" method="POST">-->
+<!--						<input type="hidden" name="registId"       th:value="${result.registId}">-->
+<!--						<input type="hidden" name="employeeId"   th:value="${result.employeeId}">-->
+<!--						<input type="hidden" name="statusId" th:value="${result.statusId}">-->
+<!--						<input type="hidden" name="workDate"         th:value="${result.workDate}">-->
+<!--						<input type="hidden" name="startTime"      th:value="${result.startTime}">-->
+<!--						<input type="hidden" name="endTime"         th:value="${result.endTime}">-->
+<!--						<input type="hidden" name="breakTime"        th:value="${result.breakTime}">-->
+<!--						<input type="hidden" name="comments"        th:value="${result.comments}">-->
+<!--						<input type="submit" value="削除" class="tbtn">-->
+<!--					</form>-->
+<!--				</td>-->
+				<td>
+				    <form th:action="@{/delete}" method="POST" style="display: inline;">
+				        <input type="hidden" name="registId" th:value="${result.registId}">
+				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
+				        <input type="hidden" name="statusId" th:value="${result.statusId}">
+				        <input type="hidden" name="workDate" th:value="${result.workDate}">
+				        <input type="hidden" name="startTime" th:value="${result.startTime}">
+				        <input type="hidden" name="endTime" th:value="${result.endTime}">
+				        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
+				        <input type="hidden" name="comments" th:value="${result.comments}">
+				        <input type="submit" value="編集" class="tbtn">
+				    </form>
+				</td>
+				<td>
+				    <form th:action="@{/delete}" method="POST" style="display: inline;">
+				        <input type="hidden" name="registId" th:value="${result.registId}">
+				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
+				        <input type="hidden" name="statusId" th:value="${result.statusId}">
+				        <input type="hidden" name="workDate" th:value="${result.workDate}">
+				        <input type="hidden" name="startTime" th:value="${result.startTime}">
+				        <input type="hidden" name="endTime" th:value="${result.endTime}">
+				        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
+				        <input type="hidden" name="comments" th:value="${result.comments}">
+				        <input type="submit" value="削除" class="tbtn">
+				    </form>
+				</td>
+				<td th:text="${result.registId}"></td>
+                <td th:text="${result.employeeId}"></td>
+                <td th:text="${result.statusId}"></td>
+                <td th:text="${result.workDate}"></td>
+                <td th:text="${result.startTime}"></td>
+                <td th:text="${result.endTime}"></td>
+                <td th:text="${result.breakTime} + ' minutes'"></td>
+                <td th:text="${result.comments}"></td>        
+	        </tr>
         </table>
     </div>
 </body>
 </html>
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Search Result</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Search Result</h1>-->
-<!--    <div th:if="${searchResult != null}">-->
-<!--        <table>-->
-<!--            <thead>-->
-<!--                <tr>-->
-<!--                    <th>Regist ID</th>-->
-<!--                    <th>Employee ID</th>-->
-<!--                    <th>Status ID</th>-->
-<!--                    <th>Work Date</th>-->
-<!--                    <th>Start Time</th>-->
-<!--                    <th>End Time</th>-->
-<!--                    <th>Break Time</th>-->
-<!--                    <th>Comments</th>-->
-<!--                </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--                <tr th:each="result : ${searchResult}">-->
-<!--                    <td th:text="${result.registId}"></td>-->
-<!--                    <td th:text="${result.employeeId}"></td>-->
-<!--                    <td th:text="${result.statusId}"></td>-->
-<!--                    <td th:text="${result.workDate}"></td>-->
-<!--                    <td th:text="${result.startTime}"></td>-->
-<!--                    <td th:text="${result.endTime}"></td>-->
-<!--                    <td th:text="${result.breakTime} + ' minutes'"></td>-->
-<!--                    <td th:text="${result.comments}"></td>-->
-<!--                </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
-<!--    </div>-->
-<!--</body>-->
-<!--</html>-->
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Search Result</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Search Result</h1>-->
-<!--    <p>ID: <span th:text="${id}"></span></p>-->
-<!--    <p>Year and Month: <span th:text="${yearMonth}"></span></p>-->
-<!--    <p>Regist ID: <span th:text="${searchResult.registId}"></span></p>-->
-<!--    <p>Employee ID: <span th:text="${searchResult.employeeId}"></span></p>-->
-<!--    <p>Status ID: <span th:text="${searchResult.statusId}"></span></p>-->
-<!--    <p>Work Date: <span th:text="${searchResult.workDate}"></span></p>-->
-<!--    <p>Start Time: <span th:text="${searchResult.startTime}"></span></p>-->
-<!--    <p>End Time: <span th:text="${searchResult.endTime}"></span></p>-->
-<!--    <p>Break Time: <span th:text="${searchResult.breakTime}"></span> minutes</p>-->
-<!--    <p>Comments: <span th:text="${searchResult.comments}"></span></p>-->
-<!--</body>-->
-<!--</html>-->
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Search Result</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Search Result</h1>-->
-<!--    <p>ID: <span th:text="${id}"></span></p>-->
-<!--    <p>Year and Month: <span th:text="${yearMonth}"></span></p>-->
-<!--</body>-->
-<!--</html>-->

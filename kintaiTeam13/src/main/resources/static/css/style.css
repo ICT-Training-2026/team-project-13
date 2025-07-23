@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+	
 }
 
 /* 中央寄せレイアウト */
@@ -93,4 +94,9 @@ a:hover {
         padding: 1rem;
         margin: 1rem;
     }
+}
+
+.error-msg {
+    color: #3b7d3b;
+	text-align: center;
 }
