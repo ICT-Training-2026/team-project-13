@@ -17,7 +17,7 @@
 <!--        <button type="submit">新規社員登録</button>-->
 <!--    </form>-->
 <!-- 新規社員登録（GET） - roleがadminのときだけ表示 -->
-	<form th:action="@{/user_regist}" method="get" th:if="${authority} == 'admin'">
+	<form th:action="@{/show-user-form}" method="get" th:if="${authority} == 'admin'">
 	    <button type="submit">新規社員登録</button>
 	</form>
 
