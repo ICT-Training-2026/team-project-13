@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
 <meta charset="UTF-8">
 <title>新規社員登録</title>
 
 </head>
 <body>
-	<h2>新規社員登録</h2>
+	<h1>新規社員登録</h1>
     <form th:action="@{/create-user}" method="POST"
     		th:object="${createForm}">
 		【社員ID】<br>
