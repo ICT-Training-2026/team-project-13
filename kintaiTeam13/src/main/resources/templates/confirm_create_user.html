@@ -16,6 +16,8 @@
 	   	<p th:text="*{departmentId}"></p><br><br>
 	   	【パスワード】<br>
 	   	<p th:text="*{pass}"></p><br><br>
+		【権限】<br>
+		<p th:text="*{authority}"></p><br><br>
 	</div>
     <form th:action="@{/confirm-create-user}" method="POST"
 			th:object="${createForm}">
@@ -23,6 +25,7 @@
     	<input type="hidden" th:field="*{name}">
     	<input type="hidden" th:field="*{departmentId}">
     	<input type="hidden" th:field="*{pass}">
+		<input type="hidden" th:field="*{authority}">
     	<input type="submit" value="登録実行" class="btn">
    	</form>
     <form th:action="@{/show-user-form-ret}" method="POST"
@@ -31,6 +34,7 @@
     	<input type="hidden" th:field="*{name}">
     	<input type="hidden" th:field="*{departmentId}">
     	<input type="hidden" th:field="*{pass}">
+		<input type="hidden" th:field="*{authority}">
     	
     	<input type="submit" value="もどる" class="btn">
    	</form>

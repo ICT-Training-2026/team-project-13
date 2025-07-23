@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.User;
+
 public interface CreateService {
 
-	  String create();
+	  void create(User user);
 }
