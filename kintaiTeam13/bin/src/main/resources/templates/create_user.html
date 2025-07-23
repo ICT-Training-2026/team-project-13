@@ -25,15 +25,6 @@
 		<input type="text" th:field="*{pass}"><br>
 		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}" class="error-msg"></div>
 		<br>
-		【権限】<br>
-		<select th:field="*{authority}"><br>
-			<option value="">選択してください</option>
-			<option value="user">社員</option>
-			<option value="admin">管理者</option>
-		</select>
-				<div th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}" class="error-msg"></div>
-				<br>
-				<br>
     	<input type="submit" value="登録" class="btn">
     </form>
 </body>
