@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新規社員登録確認</title>
+</head>
+<body>
+		
+	<h2>新規社員登録確認</h2>
+	<div th:object="${createForm}">
+		【社員ID】<br>
+		<p th:text="*{employeeId}"></p><br><br>
+	   	【氏名】<br>
+	   	<p th:text="*{name}"></p><br><br>
+	   	【部署ID】<br>
+	   	<p th:text="*{departmentId}"></p><br><br>
+	   	【パスワード】<br>
+	   	<p th:text="*{pass}"></p><br><br>
+	</div>
+    <form th:action="@{/confirm-create-user}" method="POST"
+			th:object="${createForm}">
+    	<input type="hidden" th:field="*{employeeId}">
+    	<input type="hidden" th:field="*{name}">
+    	<input type="hidden" th:field="*{departmentId}">
+    	<input type="hidden" th:field="*{pass}">
+    	<input type="submit" value="登録実行" class="btn">
+   	</form>
+    <form th:action="@{/show-user-form-ret}" method="POST"
+			th:object="${createForm}">
+    	<input type="hidden" th:field="*{employeeId}">
+    	<input type="hidden" th:field="*{name}">
+    	<input type="hidden" th:field="*{departmentId}">
+    	<input type="hidden" th:field="*{pass}">
+    	
+    	<input type="submit" value="もどる" class="btn">
+   	</form>
+</body>
+</html>
