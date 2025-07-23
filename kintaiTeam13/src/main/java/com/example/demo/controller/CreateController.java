@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.CreateForm;
+import com.example.demo.service.CreateService;
+import com.example.demo.service.CreateServiceImpl;
 
 @Controller
 public class CreateController {
@@ -48,7 +50,10 @@ public class CreateController {
 			  return "create_user";
 		  }
 		  
-		  model.addAttribute("msg", "新規社員登録が完了しました。");
+		  CreateService service = new CreateServiceImpl();
+		  String msg= service.create();
+		  
+		  model.addAttribute("msg", msg);
 		  return "complete_create_user";
 	  }
 }
