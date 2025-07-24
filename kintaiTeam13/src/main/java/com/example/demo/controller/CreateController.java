@@ -37,7 +37,7 @@ public class CreateController {
 	 
 	 /*新規登録リクエスト（登録画面から確認へ）*/
 	  @PostMapping("/create-user")
-	  public String createUser(@Validated @ModelAttribute CreateForm form,
+	  public String createUser(@Validated /*@ModelAttribute*/ CreateForm form,
 			  BindingResult result) {
 		 
 		  if (result.hasErrors()) {
@@ -48,7 +48,7 @@ public class CreateController {
 	 
 	 /*新規登録リクエスト（確認画面から完了）*/
 	  @PostMapping("/confirm-create-user")
-	  public String confirmCreateUser(@Validated /*@ModelAttribute*/ CreateForm form, 
+	  public String confirmCreateUser(@Validated @ModelAttribute CreateForm form, 
 			  BindingResult result, Model model) {
 		  
 		  if (result.hasErrors()) {
