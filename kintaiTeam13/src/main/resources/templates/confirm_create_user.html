@@ -27,7 +27,9 @@
     	<input type="hidden" th:field="*{departmentId}">
     	<input type="hidden" th:field="*{pass}">
 		<input type="hidden" th:field="*{authority}">
-    	<input type="submit" value="登録実行" class="btn">
+    	<!--<input type="submit" value="登録実行" class="btn">-->
+		<button type="submit">登録実行</button>
+		
    	</form>
     <form th:action="@{/show-user-form-ret}" method="POST"
 			th:object="${createForm}">
@@ -37,7 +39,8 @@
     	<input type="hidden" th:field="*{pass}">
 		<input type="hidden" th:field="*{authority}">
     	
-    	<input type="submit" value="もどる" class="btn">
+		<button type="submit">もどる</button>
+    	<!--<input type="submit" value="もどる" class="btn">-->
    	</form>
 </body>
 </html>
