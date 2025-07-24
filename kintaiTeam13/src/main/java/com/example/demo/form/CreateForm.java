@@ -21,8 +21,8 @@ public class CreateForm {
     private String name;
 
     @NotNull(message = "入力してください。")
-    /*@Min(value = 1000, message = "部署IDは4桁の数値で入力してください。") // 例: 1000 から 9999 の範囲を指定
-    @Max(value = 9999)*/
+    @Min(value = 1000, message = "部署IDは4桁の数値で入力してください。") // 例: 1000 から 9999 の範囲を指定
+    @Max(value = 9999, message = "部署IDは4桁の数値で入力してください。")
     private Integer departmentId;
 
     @NotBlank(message = "入力してください。")
