@@ -31,8 +31,8 @@ public class LoginRepositoryImpl implements LoginRepository {
 	        Account account = new Account();
 	        account.setEmployeeId((String) one.get("EMPLOYEE_ID"));
 	        account.setName((String)one.get("NAME"));
-//	        account.setDepartmentId((String) one.get("DEPARTMENT_ID"));
-	        account.setDepartmentId(((Integer) one.get("DEPARTMENT_ID")).intValue());
+            account.setDepartmentId((String) one.get("DEPARTMENT_ID"));
+	        //account.setDepartmentId(((Integer) one.get("DEPARTMENT_ID")).intValue());
 	        account.setPassword((String) one.get("PASS"));
 	        account.setAuthority((String) one.get("AUTHORITY"));
 //	        account.setPaidLeaveDays(((BigDecimal) one.get("PAID_LEAVE_DAYS")).doubleValue());
