@@ -29,7 +29,7 @@ public class CreateForm {
     @Size(max = 16, message = "パスワードは16文字以下で入力してください。")
     private String pass;
     
-    @NotBlank(message = "入力してください。")
+    @NotBlank(message = "選択してください。")
     private String authority;
 
 }
