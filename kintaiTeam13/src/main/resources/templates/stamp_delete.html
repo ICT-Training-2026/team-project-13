@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠削除</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>勤怠削除</h1>
+        <form th:action="@{/delete_result}" th:object="${stampForm}" method="post">
+            <label for="registId">登録ID:</label>
+            <input type="text" id="registId" th:field="*{registId}" readonly>
+
+            <label for="employeeId">社員ID:</label>
+            <input type="text" id="employeeId" th:field="*{employeeId}" readonly>
+
+            <label for="statusId">勤怠区分:</label>
+            <input type="text" id="statusId" th:field="*{statusId}" readonly>
+
+            <label for="workDate">日付:</label>
+            <input type="date" id="workDate" th:field="*{workDate}" readonly>
+
+            <label for="startTime">出勤時間:</label>
+            <input type="time" id="startTime" th:field="*{startTime}" readonly>
+
+            <label for="endTime">退勤時間:</label>
+            <input type="time" id="endTime" th:field="*{endTime}" readonly>
+
+            <label for="breakTime">休憩時間 (分):</label>
+            <input type="text" id="breakTime" th:field="*{breakTime}" readonly>
+
+            <label for="comments">コメント:</label>
+            <input type="text" id="comments" th:field="*{comments}" readonly>
+			
+<!--			<input type="hidden" name="id" th:value="${id}" />-->
+<!--			<input type="hidden" name="authority" th:value="${authority}" />-->
+			
+
+            <div class="button-container">
+                <button type="submit">削除</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

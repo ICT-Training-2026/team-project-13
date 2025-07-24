@@ -10,15 +10,15 @@
 	<h1>新規社員登録確認</h1>
 	<div th:object="${createForm}">
 		【社員ID】<br>
-		<p th:text="*{employeeId}"></p><br><br>
+		<p th:text="*{employeeId}"></p><br>
 	   	【氏名】<br>
-	   	<p th:text="*{name}"></p><br><br>
+	   	<p th:text="*{name}"></p><br>
 	   	【部署ID】<br>
-	   	<p th:text="*{departmentId}"></p><br><br>
+	   	<p th:text="*{departmentId}"></p><br>
 	   	【パスワード】<br>
-	   	<p th:text="*{pass}"></p><br><br>
+	   	<p th:text="*{pass}"></p><br>
 		【権限】<br>
-		<p th:text="*{authority}"></p><br><br>
+		<p th:text="*{authority}"></p><br>
 	</div>
     <form th:action="@{/confirm-create-user}" method="POST"
 			th:object="${createForm}">

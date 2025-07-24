@@ -27,7 +27,7 @@ public class LoginController {
 	
 
 	
-	@PostMapping("/login")
+	@PostMapping("/top")
 	public String checkLogin(
 	        @RequestParam String id,
 	        @RequestParam String pass,

@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-	
 }
 
 /* 中央寄せレイアウト */
@@ -109,6 +108,15 @@ a:hover {
     text-decoration: underline;
 }
 
+/* 段落スタイル */
+p {
+    margin-bottom: 1rem;
+    color: #2e3d2f;
+    font-size: 1rem;
+    line-height: 1.6;
+	text-align: center;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 600px) {
     form, .content-wrapper {
@@ -119,5 +127,5 @@ a:hover {
 
 .error-msg {
     color: #3b7d3b;
-	text-align: center;
+    text-align: center;
 }

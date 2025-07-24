@@ -10,10 +10,10 @@
     <h1>ログイン</h1>
 
     <!-- エラーメッセージ表示 -->
-    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error-message"></div>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>
 
     <!-- th:object は不要 -->
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/top}" method="post">
         <label for="id">ユーザーID：</label>
         <input type="text" id="id" name="id" /><br/><br/>
 
