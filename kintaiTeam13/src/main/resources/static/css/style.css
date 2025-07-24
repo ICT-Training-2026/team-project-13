@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+	
 }
 /*a*/
 
@@ -43,6 +44,7 @@ form, .content-wrapper {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 64, 0, 0.1);
 	transition: transform 0.3s ease;
+	
 }
 
 /* ラベルと入力欄 */
@@ -59,7 +61,7 @@ input[type="password"],
 input[type="date"],
 input[type="time"],
 input[type="month"],
-input[type="hidden"] {
+input[type="number"] {
     width: 100%;
     padding: 0.6rem;
     margin-bottom: 1.2rem;
