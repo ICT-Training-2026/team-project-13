@@ -10,6 +10,8 @@
     <h1>勤怠検索フォーム</h1>
 
     <form th:action="@{/search_result}" method="post">
+<!--		<input type="hidden" name="id" th:value="${id}" />-->
+<!--		<input type="hidden" name="authority" th:value="${authority}" />-->
         <!-- ID（初期値あり、admin 以外は変更不可） -->
 		<label for="id">ユーザーID：</label>
 		<input type="text" id="id" name="id"

@@ -15,7 +15,7 @@
 			    <th colspan="2">Actions</th>
 	            <th>登録番号</th>
 	            <th>社員番号</th>
-	            <th>勤務形態</th>
+	            <th>勤怠区分</th>
 	            <th>出勤日</th>
 	            <th>始業時間</th>
 	            <th>就業時間</th>
@@ -54,6 +54,9 @@
 <!--				</td>-->
 				<td>
 				    <form th:action="@{/delete}" method="POST" style="display: inline;">
+<!--						<input type="hidden" name="id" th:value="${id}" />-->
+<!--						<input type="hidden" name="authority" th:value="${authority}" />-->
+						
 				        <input type="hidden" name="registId" th:value="${result.registId}">
 				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
 				        <input type="hidden" name="statusId" th:value="${result.statusId}">
@@ -67,6 +70,9 @@
 				</td>
 				<td>
 				    <form th:action="@{/delete}" method="POST" style="display: inline;">
+<!--						<input type="hidden" name="id" th:value="${id}" />-->
+<!--						<input type="hidden" name="authority" th:value="${authority}" />-->
+						
 				        <input type="hidden" name="registId" th:value="${result.registId}">
 				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
 				        <input type="hidden" name="statusId" th:value="${result.statusId}">
