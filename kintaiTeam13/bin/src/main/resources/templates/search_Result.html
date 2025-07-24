@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+</head>
+<body>
+    <h1>検索結果</h1>
+    <div th:if="${searchResult != null}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Regist ID</th>
+                    <th>Employee ID</th>
+                    <th>Status ID</th>
+                    <th>Work Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Break Time</th>
+                    <th>Comments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="result : ${searchResult}">
+                    <td th:text="${result.registId}"></td>
+                    <td th:text="${result.employeeId}"></td>
+                    <td th:text="${result.statusId}"></td>
+                    <td th:text="${result.workDate}"></td>
+                    <td th:text="${result.startTime}"></td>
+                    <td th:text="${result.endTime}"></td>
+                    <td th:text="${result.breakTime} + ' minutes'"></td>
+                    <td th:text="${result.comments}"></td>
+                    <td>
+                        <form th:action="@{/edit}" method="POST">
+                            <input type="hidden" name="registId" th:value="${result.registId}">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <form th:action="@{/delete}" method="POST">
+                            <input type="hidden" name="registId" th:value="${result.registId}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Search Result</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Search Result</h1>-->
+<!--    <div th:if="${searchResult != null}">-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Regist ID</th>-->
+<!--                    <th>Employee ID</th>-->
+<!--                    <th>Status ID</th>-->
+<!--                    <th>Work Date</th>-->
+<!--                    <th>Start Time</th>-->
+<!--                    <th>End Time</th>-->
+<!--                    <th>Break Time</th>-->
+<!--                    <th>Comments</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr th:each="result : ${searchResult}">-->
+<!--                    <td th:text="${result.registId}"></td>-->
+<!--                    <td th:text="${result.employeeId}"></td>-->
+<!--                    <td th:text="${result.statusId}"></td>-->
+<!--                    <td th:text="${result.workDate}"></td>-->
+<!--                    <td th:text="${result.startTime}"></td>-->
+<!--                    <td th:text="${result.endTime}"></td>-->
+<!--                    <td th:text="${result.breakTime} + ' minutes'"></td>-->
+<!--                    <td th:text="${result.comments}"></td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Search Result</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Search Result</h1>-->
+<!--    <p>ID: <span th:text="${id}"></span></p>-->
+<!--    <p>Year and Month: <span th:text="${yearMonth}"></span></p>-->
+<!--    <p>Regist ID: <span th:text="${searchResult.registId}"></span></p>-->
+<!--    <p>Employee ID: <span th:text="${searchResult.employeeId}"></span></p>-->
+<!--    <p>Status ID: <span th:text="${searchResult.statusId}"></span></p>-->
+<!--    <p>Work Date: <span th:text="${searchResult.workDate}"></span></p>-->
+<!--    <p>Start Time: <span th:text="${searchResult.startTime}"></span></p>-->
+<!--    <p>End Time: <span th:text="${searchResult.endTime}"></span></p>-->
+<!--    <p>Break Time: <span th:text="${searchResult.breakTime}"></span> minutes</p>-->
+<!--    <p>Comments: <span th:text="${searchResult.comments}"></span></p>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Search Result</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Search Result</h1>-->
+<!--    <p>ID: <span th:text="${id}"></span></p>-->
+<!--    <p>Year and Month: <span th:text="${yearMonth}"></span></p>-->
+<!--</body>-->
+<!--</html>-->
