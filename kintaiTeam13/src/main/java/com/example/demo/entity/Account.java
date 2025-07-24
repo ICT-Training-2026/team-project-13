@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public class Account {
     private String employeeId;
     private String name;
-    private int departmentId;
+//    private int departmentId;
+    private String departmentId;
     private String password;
     private String authority;
 //    private double paidLeaveDays;
