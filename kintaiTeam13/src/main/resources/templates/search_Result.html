@@ -7,84 +7,56 @@
 </head>
 <body>
     <h1>検索結果</h1>
-	
-	
+
     <div th:if="${searchResult != null}">
+        <!-- CSV出力ボタンを追加 -->
+        <form th:action="@{/csv-export}" method="Post" >
+				<input type="hidden" name="id" th:value="${id}" />
+				<input type="hidden" name="yearMonth" th:value="${yearMonth}" />
+	        	<input type="submit" value="CSV出力" class="tbtn">
+        </form>
+
         <table class="search_result">
-	         <tr>
-			    <th colspan="2">Actions</th>
-	            <th>登録番号</th>
-	            <th>社員番号</th>
-	            <th>勤怠区分</th>
-	            <th>出勤日</th>
-	            <th>始業時間</th>
-	            <th>就業時間</th>
-	            <th>休憩時間</th>
-	            <th>備考</th>
-	        </tr>
-			
-				
-			
-	        <tr th:each="result : ${searchResult}">
-<!--				<td>-->
-<!--					<form th:action="@{/edit}" method="POST">-->
-<!--						<input type="hidden" name="registId"       th:value="${result.registId}">-->
-<!--						<input type="hidden" name="employeeId"   th:value="${result.employeeId}">-->
-<!--						<input type="hidden" name="statusId" th:value="${result.statusId}">-->
-<!--						<input type="hidden" name="workDate"         th:value="${result.workDate}">-->
-<!--						<input type="hidden" name="startTime"      th:value="${result.startTime}">-->
-<!--						<input type="hidden" name="endTime"         th:value="${result.endTime}">-->
-<!--						<input type="hidden" name="breakTime"        th:value="${result.breakTime}">-->
-<!--						<input type="hidden" name="comments"        th:value="${result.comments}">-->
-<!--						<input type="submit" value="編集" class="tbtn">-->
-<!--					</form>-->
-<!--				</td>-->
-<!--				<td>-->
-<!--					<form th:action="@{/delete}" method="POST">-->
-<!--						<input type="hidden" name="registId"       th:value="${result.registId}">-->
-<!--						<input type="hidden" name="employeeId"   th:value="${result.employeeId}">-->
-<!--						<input type="hidden" name="statusId" th:value="${result.statusId}">-->
-<!--						<input type="hidden" name="workDate"         th:value="${result.workDate}">-->
-<!--						<input type="hidden" name="startTime"      th:value="${result.startTime}">-->
-<!--						<input type="hidden" name="endTime"         th:value="${result.endTime}">-->
-<!--						<input type="hidden" name="breakTime"        th:value="${result.breakTime}">-->
-<!--						<input type="hidden" name="comments"        th:value="${result.comments}">-->
-<!--						<input type="submit" value="削除" class="tbtn">-->
-<!--					</form>-->
-<!--				</td>-->
-				<td>
-				    <form th:action="@{/delete}" method="POST" style="display: inline;">
-<!--						<input type="hidden" name="id" th:value="${id}" />-->
-<!--						<input type="hidden" name="authority" th:value="${authority}" />-->
-						
-				        <input type="hidden" name="registId" th:value="${result.registId}">
-				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
-				        <input type="hidden" name="statusId" th:value="${result.statusId}">
-				        <input type="hidden" name="workDate" th:value="${result.workDate}">
-				        <input type="hidden" name="startTime" th:value="${result.startTime}">
-				        <input type="hidden" name="endTime" th:value="${result.endTime}">
-				        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
-				        <input type="hidden" name="comments" th:value="${result.comments}">
-				        <input type="submit" value="編集" class="tbtn">
-				    </form>
-				</td>
-				<td>
-				    <form th:action="@{/delete}" method="POST" style="display: inline;">
-<!--						<input type="hidden" name="id" th:value="${id}" />-->
-<!--						<input type="hidden" name="authority" th:value="${authority}" />-->
-						
-				        <input type="hidden" name="registId" th:value="${result.registId}">
-				        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
-				        <input type="hidden" name="statusId" th:value="${result.statusId}">
-				        <input type="hidden" name="workDate" th:value="${result.workDate}">
-				        <input type="hidden" name="startTime" th:value="${result.startTime}">
-				        <input type="hidden" name="endTime" th:value="${result.endTime}">
-				        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
-				        <input type="hidden" name="comments" th:value="${result.comments}">
-				        <input type="submit" value="削除" class="tbtn">
-				    </form>
-				</td>
-				<td th:text="${result.registId}"></td>
+            <tr>
+                <th colspan="2">Actions</th>
+                <th>登録番号</th>
+                <th>社員番号</th>
+                <th>勤怠区分</th>
+                <th>出勤日</th>
+                <th>始業時間</th>
+                <th>就業時間</th>
+                <th>休憩時間</th>
+                <th>備考</th>
+            </tr>
+
+            <tr th:each="result : ${searchResult}">
+                <td>
+                    <form th:action="@{/edit}" method="POST" style="display: inline;">
+                        <input type="hidden" name="registId" th:value="${result.registId}">
+                        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
+                        <input type="hidden" name="statusId" th:value="${result.statusId}">
+                        <input type="hidden" name="workDate" th:value="${result.workDate}">
+                        <input type="hidden" name="startTime" th:value="${result.startTime}">
+                        <input type="hidden" name="endTime" th:value="${result.endTime}">
+                        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
+                        <input type="hidden" name="comments" th:value="${result.comments}">
+                        <input type="submit" value="編集" class="tbtn1">
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/delete}" method="POST" style="display: inline;">
+                        <input type="hidden" name="registId" th:value="${result.registId}">
+                        <input type="hidden" name="employeeId" th:value="${result.employeeId}">
+                        <input type="hidden" name="statusId" th:value="${result.statusId}">
+                        <input type="hidden" name="workDate" th:value="${result.workDate}">
+                        <input type="hidden" name="startTime" th:value="${result.startTime}">
+                        <input type="hidden" name="endTime" th:value="${result.endTime}">
+                        <input type="hidden" name="breakTime" th:value="${result.breakTime}">
+                        <input type="hidden" name="comments" th:value="${result.comments}">
+                        <input type="submit" value="削除" class="tbtn2">
+                    </form>
+                </td>
+                <td th:text="${result.registId}"></td>
                 <td th:text="${result.employeeId}"></td>
                 <td th:text="${result.statusId}"></td>
                 <td th:text="${result.workDate}"></td>
@@ -92,7 +64,7 @@
                 <td th:text="${result.endTime}"></td>
                 <td th:text="${result.breakTime} + ' minutes'"></td>
                 <td th:text="${result.comments}"></td>        
-	        </tr>
+            </tr>
         </table>
     </div>
 </body>

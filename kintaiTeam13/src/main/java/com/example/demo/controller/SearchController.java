@@ -32,9 +32,10 @@ public class SearchController {
 	
 	@PostMapping("/search_result")
 	public String searchResult(@RequestParam String id,@RequestParam String yearMonth, Model model) {
-		System.out.println(yearMonth);
-//	    model.addAttribute("id", id);
-//	    model.addAttribute("yearMonth", yearMonth);
+//		System.out.println(yearMonth);
+//		System.out.println(id);
+	    model.addAttribute("id", id);
+	    model.addAttribute("yearMonth", yearMonth);
 	    
 	    
 //	    YearMonth ym = YearMonth.parse(yearMonth);
