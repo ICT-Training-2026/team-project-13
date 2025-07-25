@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" th:href="@{/css/search_style.css}" />
+	<meta charset="UTF-8">
+	<title>csv</title>
+</head>
+<body>
+	<h1>CSV結果</h1>
+
+	   <div th:if="${searchCsvResult != null}">
+	      
+
+	       <table class="search_result">
+	           <tr>
+	               <th>社員番号</th>
+	               <th>年月</th>
+	               <th>始業時間(時)</th>
+	               <th>始業時間(分)</th>
+	               <th>就業時間(時)</th>
+	               <th>就業時間(分)</th>
+				   <th>労働時間</th>
+	               <th>休憩時間</th>
+	               <th>超過時間</th>
+	           </tr>
+
+	           <tr th:each="result : ${searchCsvResult}">
+	               <td th:text="${result.employeeId}"></td>
+	               <td th:text="${result.yearMonth}"></td>
+	               <td th:text="${result.startHour}"></td>
+	               <td th:text="${result.startMinute}"></td>
+	               <td th:text="${result.endHour}"></td>
+	               <td th:text="${result.endMinute}"></td>
+				   <td th:text="${result.workTime}"></td>			   
+	               <td th:text="${result.breakTime}"></td>
+	               <td th:text="${result.overTime}"></td>        
+	           </tr>
+			 
+	       </table>
+	   </div>
+</body>
+</html>

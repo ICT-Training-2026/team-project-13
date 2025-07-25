@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Search;
+import com.example.demo.entity.SearchCsvResult;
 import com.example.demo.entity.SearchResult;
 import com.example.demo.repository.SearchRepository;
 
@@ -21,6 +22,15 @@ public class SearchServiceImpl implements SearchService {
 	public List<SearchResult> searchResult(Search search) {
 		
 		List<SearchResult> list = repository.search(search);
+		
+		return list;
+	}
+	
+	@Override
+	public List<SearchCsvResult> searchCsvResult(Search search){
+		
+		List<SearchCsvResult> list = repository.searchCsv(search);
+//		System.out.println(list);
 		
 		return list;
 	}
