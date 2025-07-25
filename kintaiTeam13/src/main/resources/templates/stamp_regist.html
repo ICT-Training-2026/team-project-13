@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-
 <head>
 	<link rel="stylesheet" th:href="@{/css/style.css}" />
 	<meta charset="UTF-8">
 	<title>勤怠登録</title>
+	<script>
+		function toggleFields() {
+			const statusId = document.getElementById('statusId').value;
+			const conditionalFields = document.getElementById('conditionalFields');
+
+			if (statusId === '1' || statusId === '2') {
+				conditionalFields.style.display = 'block';
+			} else {
+				conditionalFields.style.display = 'none';
+
+				if (statusId === '3') { 
+					document.getElementById('startTime').value = '00:00'; 
+					document.getElementById('endTime').value = '00:00'; 
+					document.getElementById('breakTime').value = '0';
+				} else if (statusId === '4') { 
+					document.getElementById('startTime').value = '10:00';
+					document.getElementById('endTime').value = '17:00';
+					document.getElementById('breakTime').value = '0';
+				} else if (statusId === '5') { 
+					document.getElementById('startTime').value = '00:00'; 
+					document.getElementById('endTime').value = '00:00';
+					document.getElementById('breakTime').value = '0';
+				} else if (statusId === '6') { 
+					document.getElementById('startTime').value = '00:00';
+					document.getElementById('endTime').value = '00:00';
+					document.getElementById('breakTime').value = '0';
+				}
+			}
+		}
+	
+	</script>
 </head>
 
 <body>
 	<h1>勤怠登録フォーム</h1>
 
-	<form th:action="@{/stamp_confirm}" method="post">
-		<!-- ユーザーID（初期値としてmodelから受け取る） -->
-		<label for="id">ユーザーID：</label>
-		<input type="text" id="id" name="id" th:value="${id}" readonly /><br><br>
-
-		<!-- 勤怠区分の選択 -->
-		<label for="attendanceType">勤怠区分</label>
-		<select id="attendanceType" name="attendanceType" class="form-control" required>
-			<option value="" disabled selected>選択してください</option>
+	<form th:action="@{/confirm_regist}" method="post" th:object="${attendanceForm}">
+		<label for="id">社員ID：</label>
+		<input type="text" id="id" name="id" th:value="*{employeeId}" readonly /><br>
+		<br>
+		<label for="statusId">勤怠区分</label>
+		<select id="statusId" name="statusId" th:field="*{statusId}" class="form-control" required
+			onchange="toggleFields()">
+			<option value="">選択してください</option>
 			<option value="1">１.出勤</option>
 			<option value="2">２.振出</option>
 			<option value="3">３.振休</option>
@@ -27,26 +56,28 @@
 			<option value="5">５.休日</option>
 			<option value="6">６.欠勤</option>
 		</select>
+		<label for="date">日付：</label>
+		<input type="date" id="date" name="date" th:field="*{workDate}" required /><br>
+		<br>
 
-		<!-- 日付（年月日） -->
-		<label for="date">年月日：</label>
-		<input type="date" id="date" name="date" required /><br><br>
+		<div id="conditionalFields" style="display: none;">
+			<label for="startTime">始業時間：</label>
+			<input type="time" id="startTime" name="startTime" th:field="*{startTime}" required /><br>
+			<br>
+			<label for="endTime">就業時間：</label>
+			<input type="time" id="endTime" name="endTime" th:field="*{endTime}" required /><br>
+			<br>
+			<label for="breakTime">休憩(分)：</label>
+			<input type="text" id="breakTime" name="breakTime" th:field="*{breakTime}" required /><br>
+			<br>
+		</div>
+		<label for="comments">コメント:</label>
+		<input type="text" id="comments" th:field="*{comments}"><br>
+		<br>
 
-		<!-- 始業時間 -->
-		<label for="startTime">始業時間：</label>
-		<input type="time" id="startTime" name="startTime" required /><br><br>
-
-		<!-- 就業時間 -->
-		<label for="endTime">就業時間：</label>
-		<input type="time" id="endTime" name="endTime" required /><br><br>
-
-		<!-- 送信ボタン -->
 		<button type="submit">登録</button>
+		<button type="button" class="btn" onclick="history.back()">戻る</button>
 	</form>
-
-	<!-- 戻るリンク -->
-	<br>
-	<!--   <a th:href="@{/top}">トップページへ戻る</a>    -->
 </body>
 
 </html>
