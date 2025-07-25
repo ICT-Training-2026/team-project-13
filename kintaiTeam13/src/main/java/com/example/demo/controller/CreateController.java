@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.UserSession;
 import com.example.demo.entity.User;
 import com.example.demo.form.CreateForm;
 import com.example.demo.service.CreateService;
@@ -19,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class CreateController {
 	
 	private final CreateService service;
-  
+	private final UserSession userSession;
 	/*新規登録画面表示リクエスト
 	 
 	 */
@@ -67,5 +68,13 @@ public class CreateController {
 		  model.addAttribute("msg", "新規社員登録が完了しました。");
 		  return "complete_create_user";
 	  }
+	  
+	  @GetMapping("/top1")
+	  public String returnLoginTop(Model model) {
+	    	model.addAttribute("id", userSession.getId());
+	    	System.out.println(userSession.getId());
+	    	model.addAttribute("authority", userSession.getAuthority());
+	    	return "top";
+	    }
 }
 
