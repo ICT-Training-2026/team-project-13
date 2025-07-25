@@ -61,6 +61,14 @@ form {
 	
 }
 
+.guide {
+	backdrop-filter: blur(8px);
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+	transition: transform 0.3s ease;
+	
+}
 /* ラベルと入力欄 */
 label {
     display: block;
@@ -95,17 +103,17 @@ input[readonly] {
 
 
 .btn {
-	background-color: #6fae6f;
-	color: white;
-	padding: 0.6rem 1.2rem;
-	border: none;
-	border-radius: 6px;
-	font-size: 1rem;
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0,128,0,0.1);
-	transition: background-color 0.3s ease;
-	display: block; /* ブロック要素にすることで中央揃えが効く */
-	margin: 10px auto; /* 左右のマージンを自動にして中央揃え */
+	background-color: rgb(61, 190, 187);
+	    color: white;
+	    padding: 0.6rem 1.2rem;
+	    border: none;
+	    border-radius: 6px;
+	    font-size: 1rem;
+	    cursor: pointer;
+		box-shadow: 0 4px 8px rgba(0,128,0,0.1);
+	    transition: background-color 0.3s ease;
+		display: block;  /*ブロック要素にすることで中央揃えが効く */
+		margin: 0 auto;  /*左右のマージンを自動にして中央揃え */
 }
 
 
