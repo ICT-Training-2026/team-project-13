@@ -2,34 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" th:href="@{/css/style.css}" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <meta charset="UTF-8">
 <title>新規社員登録確認</title>
 </head>
 <body>
 		
 	<h1>新規社員登録確認</h1>
+	<div class="confirm">
 	<div th:object="${createForm}">
-		<p>【社員ID】<br></p>
+		<p>【社員ID】<!--<br>--></p>
 		<p th:text="*{employeeId}"></p><br>
-	   	<p>【氏名】<br></p>
+	   	<p>【氏名】<!--<br>--></p>
 	   	<p th:text="*{name}"></p><br>
-	   	<p>【部署ID】<br></p>
+	   	<p>【部署ID】<!--<br>--></p>
 	   	<p th:text="*{departmentId}"></p><br>
-	   	<p>【パスワード】<br></p>
+	   	<p>【パスワード】<!--<br>--></p>
 	   	<p th:text="*{pass}"></p><br>
-		<p>【権限】<br></p>
+		<p>【権限】<!--<br>--></p>
 		<p th:text="*{authority}"></p><br>
 	</div>
-    <form th:action="@{/confirm-create-user}" method="POST"
+	
+	    <form th:action="@{/confirm-create-user}" method="POST"
 			th:object="${createForm}">
     	<input type="hidden" th:field="*{employeeId}">
     	<input type="hidden" th:field="*{name}">
     	<input type="hidden" th:field="*{departmentId}">
     	<input type="hidden" th:field="*{pass}">
 		<input type="hidden" th:field="*{authority}">
-    	<!--<input type="submit" value="登録実行" class="btn">-->
-		<button type="submit">登録実行</button>
+    	<input type="submit" value="登録実行" class="btn">
+		<!--<button type="submit">登録実行</button>-->
 		
    	</form>
     <form th:action="@{/show-user-form-ret}" method="POST"
@@ -40,14 +41,9 @@
     	<input type="hidden" th:field="*{pass}">
 		<input type="hidden" th:field="*{authority}">
     	
-		<button type="submit">もどる</button>
-    	<!--<input type="submit" value="もどる" class="btn">-->
+		<!--<button type="submit">もどる</button>-->
+    	<input type="submit" value="もどる" class="btn">
    	</form>
-	<button class="top-icon" onclick="location.href='/top1'" title="トップ">
-		        <i class="fas fa-home"></i>
-		    </button>
-		    <button class="logout-icon" onclick="location.href='/login'" title="ログアウト">
-		        <i class="fas fa-door-open"></i>
-		    </button>
+	</div>
 </body>
 </html>
