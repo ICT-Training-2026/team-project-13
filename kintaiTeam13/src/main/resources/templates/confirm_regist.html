@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>勤怠登録確認</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<h2>勤怠登録確認</h2>
+
+	<table class="confirm-attendance" th:object="${attendanceForm}">
+		<tr>
+			<td class="guide">【社員ID】</td>
+			<td th:text="*{employeeId}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【勤怠区分】</td>
+			<td th:text="*{statusId}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【勤務日】</td>
+			<td th:text="*{workDate}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【勤務時刻】</td>
+			<td th:text="*{startTime}+'～'+ *{endTime}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【休憩】</td>
+			<td th:text="*{breakTime}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【一言コメント】</td>
+			<td th:text="*{comments}"></td>
+		</tr>
+	</table>
+	<br>
+
+	<form th:action="@{/complete}" method="POST" th:object="${attendanceForm}">
+		<input type="hidden" th:field="*{employeeId}">
+		<input type="hidden" th:field="*{statusId}">
+		<input type="hidden" th:field="*{workDate}">
+		<input type="hidden" th:field="*{startTime}">
+		<input type="hidden" th:field="*{endTime}">
+		<input type="hidden" th:field="*{breakTime}">
+		<input type="hidden" th:field="*{comments}">
+		<input type="submit" value="登録実行" class="btn">
+	</form>
+
+	
+<!--	<button  type="button"  class="btn" onclick="history.back()">戻る</button>-->
+	
+<!--	<form th:action="@{/stamp_regist_ret}" method="POST" th:object="${attendanceForm}">-->
+<!--		<input type="hidden" th:field="*{employeeId}">-->
+<!--		<input type="hidden" th:field="*{statusId}">-->
+<!--		<input type="hidden" th:field="*{workDate}">-->
+<!--		<input type="hidden" th:field="*{startTime}">-->
+<!--		<input type="hidden" th:field="*{endTime}">-->
+<!--		<input type="hidden" th:field="*{breakTime}">-->
+<!--		<input type="hidden" th:field="*{comments}" class="btn">-->
+<!--		<input type="submit" value="もどる" class="btn">-->
+<!--	</form>-->
+
+</body>
+
+</html>
