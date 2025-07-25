@@ -23,7 +23,7 @@ public class LoginController {
     
     
 
-    @GetMapping("/login")
+    @GetMapping({"/login","/"})
     public String showLoginTop() {
         return "login";
     }
